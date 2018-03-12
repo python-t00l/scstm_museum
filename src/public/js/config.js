@@ -1,2 +1,1 @@
-//export const serveUrl = 'http://www.kjg.com:8080'
-export const serveUrl = 'http://scstm.api.pthola.cn'
+export const serveUrl = 'http://www.bwg.com:8080'

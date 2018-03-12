@@ -1,2 +1,101 @@
 import {post} from './post'
 import {serveUrl} from './config'
+
+/**
+ * 获取logo
+ * @returns {*}
+ */
+export function getLogo() {
+  const result = post('Home/Index/logo')
+  return result
+}
+
+/**
+ * 获取轮播图列表
+ * @returns {*}
+ */
+export function homeSwiper() {
+  const result = post('Home/Index/imgs')
+  return result
+}
+
+/**
+ * 获取首页协会动态列表
+ * @returns {*}
+ */
+export function associatList() {
+  const result = post('Home/Index/dynamic')
+  return result
+}
+
+/**
+ * 获取首页通知公告列表
+ * @returns {*}
+ */
+export function noticeIndexList() {
+  const result = post('Home/Index/notice')
+  return result
+}
+
+/**
+ * 获取首页学术交流列表
+ * @returns {*}
+ */
+export function academicIndexList() {
+  const result = post('Home/Index/academic')
+  return result
+}
+
+/**
+ * 获取首页他山之石&在线阅读列表
+ * @param type    1他山之石,2在线阅读
+ * @returns {*}
+ */
+export function otherIndexList(type = 1) {
+  const result = post('Home/Index/ta', {
+    type: type
+  })
+  return result
+}
+
+/**
+ * 获取首页会员天地列表
+ * @returns {*}
+ */
+export function vipIndexList() {
+  const result = post('Home/Index/members_img')
+  return result
+}
+
+/**
+ * 获取底部信息
+ * @returns {*}
+ */
+export function getFootInfo() {
+  const result = post('Home/Index/ends')
+  return result
+}
+
+/**
+ * 获取通知公告列表
+ * @param page
+ * @returns {*}
+ */
+export function noticeList(page = 1) {
+  const result = post('Home/Notice/notice', {
+    page: page
+  })
+  return result
+}
+
+/**
+ * 获取通知公告详情
+ * @param id
+ * @returns {*}
+ */
+export function noticeDetail(id) {
+  const result = post('Home/Notice/data', {
+    id: id
+  })
+  return result
+}
