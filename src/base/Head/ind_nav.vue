@@ -6,6 +6,7 @@
       </router-link>
       <ul class="nav clearfix">
         <li v-for="(item,index) in navs"
+            :class="pathname===item.title ? 'active' : ''"
             :key="index">
           <router-link :to="item.url">
             {{item.title}}
@@ -17,9 +18,18 @@
 </template>
 <script type="text/ecmascript-6">
   export default {
+    props: {
+      pathname: {
+        type: String,
+        default: ''
+      },
+      logo: {
+        type: String,
+        default: '../static/images/logo.jpg'
+      }
+    },
     data() {
       return {
-        logo: '../static/images/logo.jpg',
         navs: [
           {title: '首页', url: '/'},
           {title: '协会介绍', url: '/'},
@@ -67,9 +77,16 @@
             padding-bottom: 8px;
             display: block;
             border-bottom: 4px solid transparent;
+            transition: all .25s;
           }
-          &:hover{
-            a{
+          &:hover {
+            a {
+              color: #1a1a1a;
+              border-bottom: 4px solid #004178;
+            }
+          }
+          &.active{
+            a {
               color: #1a1a1a;
               border-bottom: 4px solid #004178;
             }

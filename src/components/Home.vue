@@ -7,7 +7,11 @@
       </div>
       <ul class="news-info clearfix">
         <li class="clearfix">
-          <h2>畅游科技海洋，播撒科学的种子 </h2>
+          <h2>
+            <router-link to="/">
+              畅游科技海洋，播撒科学的种子
+            </router-link>
+          </h2>
           <p class="txt">
             2015年4月30日，什邡市科技进校园——航模表演现场会在什邡市马
             井学校举行。德阳市科技馆馆长卢春涛，什邡市科协主席朱晓峰、副
@@ -17,7 +21,11 @@
           <a target="_blank" href="/" class="details">查看详情</a>
         </li>
         <li class="clearfix">
-          <h2>畅游科技海洋，播撒科学的种子 </h2>
+          <h2>
+            <router-link to="/">
+              畅游科技海洋，播撒科学的种子
+            </router-link>
+          </h2>
           <p class="txt">
             2015年4月30日，什邡市科技进校园——航模表演现场会在什邡市马
             井学校举行。德阳市科技馆馆长卢春涛，什邡市科协主席朱晓峰、副
@@ -38,7 +46,11 @@
           </div>
           <ul class="clearfix">
             <li class="clearfix">
-              <h2>成都理工大学博物馆举办“变废为宝”创意制作大赛</h2>
+              <h2>
+                <router-link to="/">
+                  成都理工大学博物馆举办“变废为宝”创意制作大赛
+                </router-link>
+              </h2>
               <div class="oper clearfix">
                 <p>
                   <i class="icon">
@@ -139,6 +151,7 @@
         </div>
       </div>
     </div>
+
   </slot-con>
 </template>
 <script type="text/ecmascript-6">
@@ -179,10 +192,12 @@
         }
         h2 {
           font-size: 18px;
-          color: #004179;
           margin-bottom: 12px;
           text-align: center;
           font-weight: bold;
+          a {
+            color: #004179;
+          }
         }
         .txt {
           font-size: 14px;
@@ -218,10 +233,15 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #e1e1e1;
             h2 {
-              color: #333;
               font-size: 18px;
               font-weight: bold;
               padding-bottom: 15px;
+              a {
+                color: #333;
+              }
+              :hover{
+                color: #004179;
+              }
             }
             .oper {
               p {
@@ -270,25 +290,25 @@
           }
         }
       }
-      .vip{
+      .vip {
         width: 100%;
         margin-top: 40px;
-        .title{
+        .title {
           border-bottom: 1px solid #e1e1e1;
           padding-bottom: 10px;
-          .txt{
+          .txt {
             font-size: 22px;
             color: #333;
             float: left;
           }
-          .more{
+          .more {
             float: right;
             color: #004179;
             font-size: 14px;
             line-height: 29px;
           }
         }
-        .rolls{
+        .rolls {
           width: 100%;
           height: 100px;
           margin-top: 20px;
