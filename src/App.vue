@@ -45,7 +45,6 @@
         const result = getFootInfo()
         result.then(res => {
           if (res.status === 0) {
-            console.log(res)
             this.footer = res.msg
           }
         }).catch(err => {

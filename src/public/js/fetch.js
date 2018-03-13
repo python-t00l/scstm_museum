@@ -99,3 +99,15 @@ export function noticeDetail(id) {
   })
   return result
 }
+
+/**
+ * 协会介绍列表
+ * @param page
+ * @returns {*}
+ */
+export function introduceList(page = 1) {
+  const result = post('Home/introduce/lists', {
+    page: page
+  })
+  return result
+}

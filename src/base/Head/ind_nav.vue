@@ -32,7 +32,7 @@
       return {
         navs: [
           {title: '首页', url: '/'},
-          {title: '协会介绍', url: '/'},
+          {title: '协会介绍', url: '/introduce/index'},
           {title: '通知公告', url: '/'},
           {title: '会员天地', url: '/'},
           {title: '协会动态', url: '/'},

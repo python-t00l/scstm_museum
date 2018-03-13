@@ -6,7 +6,7 @@
         <vue-seam-less :data="data.logo" :class-option="optionLeft" class="seamless-warp2">
           <ul class="rolls-box">
             <li v-for="(item,index) in data.logo" :key="index">
-              <a :href="item.url">
+              <a target="_blank" :href="item.url">
                 <img :src="item.logo"/>
               </a>
             </li>
