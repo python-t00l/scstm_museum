@@ -1,5 +1,6 @@
 import {serveUrl} from './config'
 import Vue from 'vue'
+import qs from 'qs'
 
 /**
  * 封装post请求
@@ -14,7 +15,7 @@ export function post(url, params) {
   return _this.$http({
     method: 'post',
     url: url,
-    data: params
+    data: qs.stringify(params)
   }).then((res) => {
     return Promise.resolve(res.data)
   })
