@@ -3,29 +3,51 @@
     <div class="friend-link">
       <div class="link-con">
         <p class="title">友情链接</p>
-        <ul class="rolls-box">
-
-        </ul>
+        <vue-seam-less :data="data.logo" :class-option="optionLeft" class="seamless-warp2">
+          <ul class="rolls-box">
+            <li v-for="(item,index) in data.logo" :key="index">
+              <a :href="item.url">
+                <img :src="item.logo"/>
+              </a>
+            </li>
+          </ul>
+        </vue-seam-less>
       </div>
     </div>
     <div class="copyright">
-      地址：四川省成都市人民中路一段十六号
+      地址：{{data.end[0].valus}}
       &nbsp;&nbsp;&nbsp;&nbsp;
-      电话：028-86609205
+      电话：{{data.end[1].valus}}
       &nbsp;&nbsp;&nbsp;&nbsp;
-      传真：028-86609205
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      在线：1
+      传真：{{data.end[2].valus}}
       &nbsp;&nbsp;&nbsp;&nbsp;
       <a href="/" target="_blank">管理员登录</a>
     </div>
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import vueSeamLess from 'vue-seamless-scroll'
+
   export default {
+    components: {
+      vueSeamLess
+    },
+    props: {
+      data: {
+        default: null
+      }
+    },
     data() {
       return {}
-    }
+    },
+    computed: {
+      optionLeft() {
+        return {
+          direction: 2,
+          limitMoveNum: 2
+        }
+      }
+    },
   }
 </script>
 <style lang="less">
@@ -46,13 +68,33 @@
           vertical-align: middle;
           text-align: center;
         }
-        .rolls-box {
-          background: gray;
-          display: inline-block;
-          vertical-align: middle;
-          margin-left: 10px;
+        .seamless-warp2{
           width: 1150px;
           height: 60px;
+          overflow: hidden;
+          margin-left: 10px;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .rolls-box {
+          width: 100%;
+          overflow: hidden;
+          height: 60px;
+          li {
+            width: 209px;
+            height: 100%;
+            overflow: hidden;
+            float: left;
+            margin-right: 6px;
+            a{
+              display: block;
+              width: 100%;
+              img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
         }
       }
     }
@@ -63,7 +105,7 @@
       text-align: center;
       font-size: 14px;
       color: #fff;
-      a{
+      a {
         color: #fff;
       }
     }

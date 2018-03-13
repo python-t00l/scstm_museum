@@ -44,9 +44,7 @@
               更多
             </router-link>
           </div>
-          <div class="rolls">
-
-          </div>
+          <vip-swiper :data="vipImgs"></vip-swiper>
         </div>
       </div>
       <!--right content-->
@@ -56,7 +54,7 @@
         <!--学术交流-->
         <academics :data="academics"></academics>
         <!--他山之石&在线阅读-->
-        <others></others>
+        <others :data="others"></others>
       </div>
     </div>
 
@@ -69,12 +67,14 @@
   import academics from '@/base/academics'
   import others from '@/base/others'
   import assItem from '@/base/ass_item'
+  import vipSwiper from '@/base/vip_swiper'
   import {
     homeSwiper,
     associatList,
     noticeIndexList,
     academicIndexList,
-    otherIndexList
+    otherIndexList,
+    vipIndexList
   } from '@/public/js/fetch'
 
   export default {
@@ -84,7 +84,8 @@
       assItem,
       notices,
       academics,
-      others
+      others,
+      vipSwiper
     },
     data() {
       return {
@@ -94,7 +95,9 @@
           on: [],
           under: []
         },
-        academics: []
+        academics: [],
+        others: {},
+        vipImgs: []
       }
     },
     created() {
@@ -103,6 +106,7 @@
       this._noticeIndexList()
       this._academicIndexList()
       this._otherIndexList()
+      this._vipIndexList()
     },
     methods: {
       /**
@@ -161,7 +165,19 @@
       _otherIndexList() {
         const result = otherIndexList()
         result.then(res => {
-          console.log(res)
+          this.others = res.msg
+        }).catch(err => {
+          console.log(err.response)
+        })
+      },
+      /**
+       * 会员天地
+       * @private
+       */
+      _vipIndexList() {
+        const result = vipIndexList()
+        result.then(res => {
+          this.vipImgs = res.msg
         }).catch(err => {
           console.log(err.response)
         })
@@ -252,7 +268,7 @@
       }
       .vip {
         width: 100%;
-        margin-top: 40px;
+        margin-top: 60px;
         .title {
           border-bottom: 1px solid #e1e1e1;
           padding-bottom: 10px;
@@ -272,7 +288,6 @@
           width: 100%;
           height: 100px;
           margin-top: 20px;
-          background: gray;
         }
       }
     }

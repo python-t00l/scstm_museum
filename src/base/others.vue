@@ -1,23 +1,33 @@
 <template>
   <div class="other-con">
     <ul class="tab clearfix">
-      <li class="active">
+      <li class="active" @mouseenter="showData(1)">
         <router-link to="/">
           他山之石+
         </router-link>
       </li>
       <li class="line"> / </li>
-      <li>
+      <li @mouseenter="showData(2)">
         <router-link to="/">
           在线阅读+
         </router-link>
       </li>
     </ul>
-    <ul class="list clearfix">
-      <li>
+    <!--他山之石-->
+    <ul v-if="type===1" class="list clearfix">
+      <li v-for="(item,index) in data.ta" :key="index">
         <span class="splt"></span>
         <router-link to="/">
-          省科博协组织参与第五届全国科技馆辅导员大赛西部赛区预赛
+          {{item.title}}
+        </router-link>
+      </li>
+    </ul>
+    <!--在线阅读-->
+    <ul v-if="type===2" class="list clearfix">
+      <li v-for="(item,index) in data.xie" :key="index">
+        <span class="splt"></span>
+        <router-link to="/">
+          {{item.title}}
         </router-link>
       </li>
     </ul>
@@ -25,8 +35,21 @@
 </template>
 <script type="text/ecmascript-6">
   export default {
+    props: {
+      data: {
+        type: Object,
+        default: ''
+      }
+    },
     data() {
-      return {}
+      return {
+        type: 1
+      }
+    },
+    methods: {
+      showData(type) {
+        this.type = type
+      }
     }
   }
 </script>

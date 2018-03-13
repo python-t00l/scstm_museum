@@ -4,7 +4,7 @@
 
     <router-view/>
 
-    <ind-footer></ind-footer>
+    <ind-footer :data="footer"></ind-footer>
   </div>
 </template>
 
@@ -22,7 +22,8 @@
     data() {
       return {
         pathname: '',
-        logo: ''
+        logo: '',
+        footer: ''
       }
     },
     created() {
@@ -45,6 +46,7 @@
         result.then(res => {
           if (res.status === 0) {
             console.log(res)
+            this.footer = res.msg
           }
         }).catch(err => {
           console.log(err.response)
