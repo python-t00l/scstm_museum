@@ -161,3 +161,15 @@ export function vipList(page) {
   })
   return result
 }
+
+/**
+ * 获取协会动态
+ * @param page
+ * @returns {*}
+ */
+export function dynamicList(page) {
+  const result = post('Home/Dynamic/lists', {
+    page: page
+  })
+  return result
+}
