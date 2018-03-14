@@ -50,7 +50,7 @@
       <!--right content-->
       <div class="r-con">
         <!--通知公告-->
-        <notices :data="notices.under"></notices>
+        <side-item :data="notices.under" title="通知公告" url="/"></side-item>
         <!--学术交流-->
         <academics :data="academics"></academics>
         <!--他山之石&在线阅读-->
@@ -63,10 +63,10 @@
 <script type="text/ecmascript-6">
   import slotCon from '@/base/slot_con'
   import Swiper from '@/base/swiper'
-  import notices from '@/base/notices'
+  import sideItem from '@/base/side_item'
   import academics from '@/base/academics'
   import others from '@/base/others'
-  import assItem from '@/base/ass_item'
+  import assItem from '@/base/group_item'
   import vipSwiper from '@/base/vip_swiper'
   import {
     homeSwiper,
@@ -82,7 +82,7 @@
       slotCon,
       Swiper,
       assItem,
-      notices,
+      sideItem,
       academics,
       others,
       vipSwiper

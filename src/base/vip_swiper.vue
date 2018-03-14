@@ -3,7 +3,9 @@
     <swiper :options="swiperOptions">
       <swiper-slide v-for="(item,index) in data"
                     :key="index">
-        <img :src="item.img"/>
+        <a target="_blank" :href="item.url">
+          <img :src="item.img"/>
+        </a>
       </swiper-slide>
     </swiper>
     <Icon type="ios-arrow-right" class="swiper-icon swiper-next" slot="button-next"></Icon>
@@ -42,23 +44,23 @@
 <style lang="less">
   .rolls {
     position: relative;
-    .swiper-container{
+    .swiper-container {
       height: 100%;
-      .swiper-wrapper{
+      .swiper-wrapper {
         overflow: hidden;
       }
-      .swiper-slide{
+      .swiper-slide {
         width: 170px !important;
         height: 100px !important;
         overflow: hidden;
-        img{
+        img {
           width: 100%;
         }
       }
     }
-    .swiper-icon{
+    .swiper-icon {
       position: absolute;
-      top:50%;
+      top: 50%;
       margin-top: -25px;
       display: block;
       color: #004179;
@@ -66,10 +68,10 @@
       cursor: pointer;
       font-size: 50px;
     }
-    .swiper-next{
-      right:-60px;
+    .swiper-next {
+      right: -60px;
     }
-    .swiper-prev{
+    .swiper-prev {
       left: -60px;
     }
   }

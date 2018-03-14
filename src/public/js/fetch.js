@@ -63,7 +63,7 @@ export function otherIndexList(type = 1) {
  * @returns {*}
  */
 export function vipIndexList() {
-  const result = post('Home/Index/members_img')
+  const result = post('Home/Members/imgs')
   return result
 }
 
@@ -82,7 +82,7 @@ export function getFootInfo() {
  * @returns {*}
  */
 export function noticeList(page = 1) {
-  const result = post('Home/Notice/notice', {
+  const result = post('Home/Notice/lists', {
     page: page
   })
   return result
@@ -146,6 +146,18 @@ export function formSubmit(name, phone, content, vertify) {
     phone: phone,
     content: content,
     vertify: vertify
+  })
+  return result
+}
+
+/**
+ * 获取会员天地
+ * @param page
+ * @returns {*}
+ */
+export function vipList(page) {
+  const result = post('Home/Members/lists', {
+    page: page
   })
   return result
 }

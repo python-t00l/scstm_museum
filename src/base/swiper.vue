@@ -6,7 +6,7 @@
         v-for="(item,index) in banners"
         :key="index">
         <a target="_blank" :href="item.url" class="bg-img"
-           :style="{background: 'url('+item.cycle+') no-repeat center'}"></a>
+           :style="{background: 'url('+item.img+') no-repeat center'}"></a>
       </swiper-slide>
 
       <div class="swiper-pagination" slot="pagination"></div>
@@ -36,7 +36,7 @@
     data() {
       return {
         swiperOption: {
-          spaceBetween: 10,
+          spaceBetween: 5,
           centeredSlides: true,
           speed: 600,
           autoplay: {

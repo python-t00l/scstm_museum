@@ -1,8 +1,8 @@
 <template>
   <div class="notice-con">
     <div class="title">
-      <router-link to="/">
-        通知公告+
+      <router-link :to="url">
+        {{title}}+
       </router-link>
     </div>
     <ul class="list clearfix">
@@ -20,6 +20,14 @@
     props: {
       data: {
         type: Array,
+        default: ''
+      },
+      url: {
+        type: String,
+        default: ''
+      },
+      title: {
+        type: String,
         default: ''
       }
     },

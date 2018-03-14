@@ -34,7 +34,7 @@
           {title: '首页', url: '/'},
           {title: '协会介绍', url: '/introduce'},
           {title: '通知公告', url: '/notice'},
-          {title: '会员天地', url: '/'},
+          {title: '会员天地', url: '/vip'},
           {title: '协会动态', url: '/'},
           {title: '学术交流', url: '/'},
           {title: '在线阅读', url: '/'},

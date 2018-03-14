@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const Home = () => import('@/components/Home')
 const Introduce = () => import('@/components/Introduce')
 const Notices = () => import('@/components/Notices')
+const Vip = () => import('@/components/Vip')
 
 Vue.use(Router)
 
@@ -26,6 +27,12 @@ export default new Router({
       name: '通知公告',
       component: Notices,
       meta: ['通知公告']
+    },
+    {
+      path: '/vip',
+      name: '会员天地',
+      component: Vip,
+      meta: ['会员天地']
     }
   ]
 })
