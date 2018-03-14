@@ -64,4 +64,18 @@
 
 <style>
   @import "./public/css/base.css";
+  #app{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .header{
+    flex: 0 0 auto;
+  }
+  .container{
+    flex: 1 0 auto;
+  }
+  .footer{
+    flex: 0 0 auto;
+  }
 </style>

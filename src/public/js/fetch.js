@@ -173,3 +173,15 @@ export function dynamicList(page) {
   })
   return result
 }
+
+/**
+ * 获取学术交流列表
+ * @param page
+ * @returns {*}
+ */
+export function academicList(page) {
+  const result = post('Home/Academic/lists', {
+    page: page
+  })
+  return result
+}

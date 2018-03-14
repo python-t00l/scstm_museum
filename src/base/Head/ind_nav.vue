@@ -36,7 +36,7 @@
           {title: '通知公告', url: '/notice'},
           {title: '会员天地', url: '/vip'},
           {title: '协会动态', url: '/dynamic'},
-          {title: '学术交流', url: '/'},
+          {title: '学术交流', url: '/academic'},
           {title: '在线阅读', url: '/'},
           {title: '他山之石', url: '/'},
           {title: '下载专区', url: '/'},

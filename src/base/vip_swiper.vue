@@ -1,5 +1,5 @@
 <template>
-  <div class="rolls">
+  <div class="rolls" v-if="data">
     <swiper :options="swiperOptions">
       <swiper-slide v-for="(item,index) in data"
                     :key="index">

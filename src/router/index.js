@@ -6,6 +6,7 @@ const Introduce = () => import('@/components/Introduce')
 const Notices = () => import('@/components/Notices')
 const Vip = () => import('@/components/Vip')
 const Dynamic = () => import('@/components/Dynamic')
+const Academic = () => import('@/components/Academic')
 
 Vue.use(Router)
 
@@ -40,6 +41,12 @@ export default new Router({
       name: '协会动态',
       component: Dynamic,
       meta: ['协会动态']
+    },
+    {
+      path: '/academic',
+      name: '学术交流',
+      component: Academic,
+      meta: ['学术交流']
     }
   ]
 })
