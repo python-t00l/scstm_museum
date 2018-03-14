@@ -123,3 +123,29 @@ export function introduceDetail(id) {
   })
   return result
 }
+
+/**
+ * 获取图片验证码
+ * @returns {string}
+ */
+export function getImgCode() {
+  return serveUrl + '/Home/Introduce/vertify' + '/' + Date.parse(new Date())
+}
+
+/**
+ * 提交表单数据
+ * @param name
+ * @param phone
+ * @param content
+ * @param vertify
+ * @returns {*}
+ */
+export function formSubmit(name, phone, content, vertify) {
+  const result = post('Home/Introduce/message', {
+    name: name,
+    phone: phone,
+    content: content,
+    vertify: vertify
+  })
+  return result
+}

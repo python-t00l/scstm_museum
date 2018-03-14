@@ -29,10 +29,10 @@
               <div class="form-item">
                 <input type="text"
                        v-model="name.value"
+                       @input="verifyName()"
                        placeholder="请输入你的姓名"/>
                 <label class="error"
                        :class="name.error ? 'is-visible' : ''">
-                  不能为空
                   {{name.error}}
                 </label>
               </div>
@@ -42,11 +42,10 @@
               <div class="form-item">
                 <input type="text"
                        v-model="phone.value"
-                       placeholder="请输入联系电话"
-                       maxlength="11"/>
+                       @input="verifyPhone()"
+                       placeholder="请输入联系电话"/>
                 <label class="error"
                        :class="phone.error ? 'is-visible' : ''">
-                  不能为空
                   {{phone.error}}
                 </label>
               </div>
@@ -54,10 +53,10 @@
             <div class="form-group clearfix">
               <label class="name">留言内容</label>
               <div class="form-item">
-                <textarea rows="5" cols="20" v-model="content.value" placeholder="请输入留言内容"></textarea>
+                <textarea rows="5" cols="20" v-model="content.value" placeholder="请输入留言内容"
+                          @input="verifyContent()"></textarea>
                 <label class="error"
                        :class="content.error ? 'is-visible' : ''">
-                  不能为空
                   {{content.error}}
                 </label>
               </div>
@@ -65,13 +64,20 @@
             <div class="form-group clearfix">
               <label class="name">验证码</label>
               <div class="form-item">
-                <input v-model="content.value"/>
-                <label class="error"
-                       :class="content.error ? 'is-visible' : ''">
-                  不能为空
-                  {{content.error}}
-                </label>
+                <div class="vertify">
+                  <div class="imgcode">
+                    <input type="text" v-model="vertify.value" @input="verifyImgCode()"/>
+                    <label class="error"
+                           :class="vertify.error ? 'is-visible' : ''">
+                      {{vertify.error}}
+                    </label>
+                  </div>
+                  <img @click="_getImgCode()" class="vertify-img" :src="imgCaptcha"/>
+                </div>
               </div>
+            </div>
+            <div class="form-group clearfix" style="margin-top: 40px">
+              <button type="button" class="input-btn" @click="handleSubmit()">{{load ? '加载中...' : '确认'}}</button>
             </div>
           </div>
         </div>
@@ -82,7 +88,12 @@
 </template>
 <script type="text/ecmascript-6">
   import slotCon from '@/base/slot_con'
-  import {introduceList, introduceDetail} from '@/public/js/fetch'
+  import {
+    introduceList,
+    introduceDetail,
+    getImgCode,
+    formSubmit
+  } from '@/public/js/fetch'
 
   export default {
     components: {
@@ -115,13 +126,54 @@
           value: '',
           error: '',
           isVerify: false
-        }
+        },
+        load: false,
+        imgCaptcha: getImgCode()
       }
     },
     created() {
       this._introduceList()
     },
     methods: {
+      verifyName() {
+        if (this.name.value === null || this.name.value === '' || this.name.value === undefined) {
+          this.name.error = '请输入你的姓名'
+          this.name.isVerify = false
+        } else {
+          this.name.error = ''
+          this.name.isVerify = true
+        }
+      },
+      verifyPhone() {
+        if (this.phone.value === null || this.phone.value === '' || this.phone.value === undefined) {
+          this.phone.error = '请输入手机号'
+          this.phone.isVerify = false
+        } else if (!/^1[0-9]{10}$/.test(this.phone.value)) {
+          this.phone.error = '请输入正确手机号'
+          this.phone.isVerify = false
+        } else {
+          this.phone.error = ''
+          this.phone.isVerify = true
+        }
+      },
+      verifyContent() {
+        if (this.content.value === null || this.content.value === '' || this.content.value === undefined) {
+          this.content.error = '请输入留言内容'
+          this.content.isVerify = false
+        } else {
+          this.content.error = ''
+          this.content.isVerify = true
+        }
+      },
+      verifyImgCode() {
+        if (this.vertify.value === null || this.vertify.value === '' || this.vertify.value === undefined) {
+          this.vertify.error = '请输入图片验证码'
+          this.vertify.isVerify = false
+        } else {
+          this.vertify.error = ''
+          this.vertify.isVerify = true
+        }
+      },
       _introduceList() {
         const result = introduceList()
         result.then(res => {
@@ -158,6 +210,56 @@
         result.then(res => {
           console.log(res)
           this.text = res.msg
+        }).catch(err => {
+          console.log(err.response)
+        })
+      },
+      /**
+       * 验证码图片切换
+       * @private
+       */
+      _getImgCode() {
+        this.imgCaptcha = getImgCode()
+      },
+      /**
+       * 触发验证
+       */
+      handleForm() {
+        this.verifyPhone()
+        this.verifyContent()
+        this.verifyName()
+        this.verifyImgCode()
+      },
+      /**
+       * 提交表单数据
+       */
+      handleSubmit() {
+        this.handleForm()
+        if (
+          this.name.isVerify && this.phone.isVerify && this.content.isVerify && this.vertify.isVerify
+        ) {
+          this.handleFormAjax()
+        }
+      },
+      /**
+       * 提交数据
+       */
+      handleFormAjax() {
+        this.load = true
+        const result = formSubmit(
+          this.name.value,
+          this.phone.value,
+          this.content.value,
+          this.vertify.value
+        )
+        result.then(res => {
+          console.log(res)
+          this.load = false
+          if (res.status !== 0) {
+            this._getImgCode()
+            const obj = res.data
+            this[Object.keys(obj)[0]].error = res.data[Object.keys(obj)[0]]
+          }
         }).catch(err => {
           console.log(err.response)
         })
@@ -251,6 +353,28 @@
                 height: 42px;
               }
             }
+            .vertify {
+              width: 100%;
+              .imgcode {
+                width: 200px;
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                input {
+                  width: 100%;
+                }
+              }
+              .vertify-img {
+                display: inline-block;
+                vertical-align: middle;
+                height: 43px;
+                margin-left: 20px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+              }
+            }
             input, textarea {
               width: 100%;
               border: 1px solid #dddee1;
@@ -305,6 +429,26 @@
               transition: .25s ease-out;
               font-size: 14px;
             }
+          }
+          .input-btn {
+            width: 100%;
+            display: block;
+            border: none;
+            height: 44px;
+            line-height: 44px;
+            background-color: #3c97ee;
+            background-image: linear-gradient(135deg, #00d0fb, #00acf6);
+            color: #fff;
+            overflow: hidden;
+            cursor: pointer;
+            font-size: 15px;
+            text-align: center;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+          }
+          .disabled {
+            background: gray;
           }
         }
       }
