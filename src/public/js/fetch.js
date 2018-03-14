@@ -111,3 +111,15 @@ export function introduceList(page = 1) {
   })
   return result
 }
+
+/**
+ * 协会介绍详情
+ * @param id
+ * @returns {*}
+ */
+export function introduceDetail(id) {
+  const result = post('Home/introduce/data', {
+    id: id
+  })
+  return result
+}
