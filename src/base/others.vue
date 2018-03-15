@@ -2,13 +2,13 @@
   <div class="other-con">
     <ul class="tab clearfix">
       <li class="active" @mouseenter="showData(1)">
-        <router-link to="/">
+        <router-link to="/tashan">
           他山之石+
         </router-link>
       </li>
       <li class="line"> / </li>
       <li @mouseenter="showData(2)">
-        <router-link to="/">
+        <router-link to="/reading">
           在线阅读+
         </router-link>
       </li>

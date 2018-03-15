@@ -55,7 +55,7 @@
     .friend-link {
       border-top: 1px solid #b3b3b3;
       background: #f3f3f3;
-      padding: 12px 0 12px 0;
+      padding: 6px 0 6px 0;
       margin-top: 20px;
       .link-con {
         width: 1200px;
@@ -70,7 +70,7 @@
         }
         .seamless-warp2{
           width: 1150px;
-          height: 60px;
+          height: 47px;
           overflow: hidden;
           margin-left: 10px;
           display: inline-block;
@@ -79,9 +79,9 @@
         .rolls-box {
           width: 100%;
           overflow: hidden;
-          height: 60px;
+          height: 47px;
           li {
-            width: 209px;
+            width: 163px;
             height: 100%;
             overflow: hidden;
             float: left;

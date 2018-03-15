@@ -1,8 +1,8 @@
 <template>
   <div class="science-con">
     <div class="title">
-      <router-link to="/">
-        学术交流+
+      <router-link :to="url">
+        {{title}}+
       </router-link>
     </div>
     <ul class="list clearfix">
@@ -21,6 +21,14 @@
     props: {
       data: {
         type: Array,
+        default: ''
+      },
+      url: {
+        type: String,
+        default: ''
+      },
+      title: {
+        type: String,
         default: ''
       }
     },

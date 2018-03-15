@@ -30,7 +30,7 @@
             <p>协会动态</p>
           </div>
           <ass-item :data="assList"></ass-item>
-          <router-link to="/" class="more">
+          <router-link to="/dynamic" class="more">
             <span>点击查看更多</span>
             <i class="icon">
               <img src="../assets/jiantou.png"/>
@@ -50,9 +50,9 @@
       <!--right content-->
       <div class="r-con">
         <!--通知公告-->
-        <side-item :data="notices.under" title="通知公告" url="/"></side-item>
+        <side-item :data="notices.under" title="通知公告" url="/notice"></side-item>
         <!--学术交流-->
-        <academics :data="academics"></academics>
+        <academics :data="academics" title="学术交流" url="/academic"></academics>
         <!--他山之石&在线阅读-->
         <others :data="others"></others>
       </div>

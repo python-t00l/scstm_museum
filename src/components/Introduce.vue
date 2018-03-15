@@ -437,7 +437,7 @@
             height: 44px;
             line-height: 44px;
             background-color: #3c97ee;
-            background-image: linear-gradient(135deg, #00d0fb, #00acf6);
+            background-image: linear-gradient(135deg, #004178, #0761af);
             color: #fff;
             overflow: hidden;
             cursor: pointer;
