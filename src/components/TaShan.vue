@@ -12,7 +12,7 @@
           </Pagination>
         </div>
         <div class="notice">
-          <side-item :data="notices" title="通知公告" url="/"></side-item>
+          <side-item :data="notices" title="通知公告" url="/notice"></side-item>
         </div>
       </div>
     </div>

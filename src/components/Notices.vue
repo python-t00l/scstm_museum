@@ -12,7 +12,7 @@
           </Pagination>
         </div>
         <div class="dynamic">
-          <side-item :data="dynamics" title="协会动态" url="/"></side-item>
+          <side-item :data="dynamics" title="协会动态" url="/dynamic"></side-item>
         </div>
       </div>
     </div>

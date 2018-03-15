@@ -13,9 +13,7 @@
         </div>
         <div class="imgs">
           <div class="title">
-            <router-link to="/">
-              图片新闻
-            </router-link>
+            图片新闻
           </div>
           <div class="swiper-box">
             <swiper :banners="banners"></swiper>

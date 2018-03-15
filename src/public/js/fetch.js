@@ -221,3 +221,12 @@ export function downloadList(page = 1) {
   })
   return result
 }
+
+/**
+ * 文件下载
+ * @param filename
+ * @returns {string}
+ */
+export function downFile(filename) {
+  return serveUrl + '/' + 'Home/Download/download?filename=' + filename
+}

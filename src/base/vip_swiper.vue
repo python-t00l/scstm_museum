@@ -7,9 +7,9 @@
           <img :src="item.img"/>
         </a>
       </swiper-slide>
+      <Icon type="ios-arrow-right" class="swiper-icon swiper-next" slot="button-next"></Icon>
+      <Icon type="ios-arrow-left" class="swiper-icon swiper-prev" slot="button-prev"></Icon>
     </swiper>
-    <Icon type="ios-arrow-right" class="swiper-icon swiper-next" slot="button-next"></Icon>
-    <Icon type="ios-arrow-left" class="swiper-icon swiper-prev" slot="button-prev"></Icon>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -63,16 +63,16 @@
       top: 50%;
       margin-top: -25px;
       display: block;
-      color: #004179;
+      color: #fff;
       z-index: 100;
       cursor: pointer;
       font-size: 50px;
     }
     .swiper-next {
-      right: -60px;
+      right: 15px;
     }
     .swiper-prev {
-      left: -60px;
+      left: 15px;
     }
   }
 </style>

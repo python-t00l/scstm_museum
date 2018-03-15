@@ -16,7 +16,7 @@
                 </span>
               </div>
               <p>
-                <a :href="item.file">
+                <a :href="filename+ '/' + 'Home/Download/download?filename='+item.filename">
                   <i class="icon">
                     <img src="../assets/down.png"/>
                   </i>
@@ -31,7 +31,7 @@
           </Pagination>
         </div>
         <div class="dynamic">
-          <side-item :data="dynamics" title="协会动态" url="/"></side-item>
+          <side-item :data="dynamics" title="协会动态" url="/dynamic"></side-item>
         </div>
       </div>
     </div>
@@ -41,9 +41,10 @@
   import slotCon from '@/base/slot_con'
   import titles from '@/base/title'
   import sideItem from '@/base/side_item'
-  import {downloadList, associatList} from '@/public/js/fetch'
+  import {downloadList, associatList, downFile} from '@/public/js/fetch'
   import Pagination from '@/base/pagination'
   import moment from 'moment'
+  import {serveUrl} from '@/public/js/config'
 
   export default {
     components: {
@@ -56,7 +57,8 @@
       return {
         downloads: [],
         dynamics: [],
-        page: 1
+        page: 1,
+        filename: serveUrl
       }
     },
     created() {
@@ -92,7 +94,7 @@
       handlePage(page) {
         this.page = page
         this._downloadList()
-      },
+      }
     },
     filters: {
       dateFrm(date) {
