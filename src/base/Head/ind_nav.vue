@@ -37,9 +37,9 @@
           {title: '会员天地', url: '/vip'},
           {title: '协会动态', url: '/dynamic'},
           {title: '学术交流', url: '/academic'},
-          {title: '在线阅读', url: '/'},
-          {title: '他山之石', url: '/'},
-          {title: '下载专区', url: '/'},
+          {title: '在线阅读', url: '/reading'},
+          {title: '他山之石', url: '/tashan'},
+          {title: '下载专区', url: '/download'},
         ]
       }
     }
@@ -85,7 +85,7 @@
               border-bottom: 4px solid #004178;
             }
           }
-          &.active{
+          &.active {
             a {
               color: #1a1a1a;
               border-bottom: 4px solid #004178;

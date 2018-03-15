@@ -155,7 +155,7 @@ export function formSubmit(name, phone, content, vertify) {
  * @param page
  * @returns {*}
  */
-export function vipList(page) {
+export function vipList(page = 1) {
   const result = post('Home/Members/lists', {
     page: page
   })
@@ -167,7 +167,7 @@ export function vipList(page) {
  * @param page
  * @returns {*}
  */
-export function dynamicList(page) {
+export function dynamicList(page = 1) {
   const result = post('Home/Dynamic/lists', {
     page: page
   })
@@ -179,8 +179,44 @@ export function dynamicList(page) {
  * @param page
  * @returns {*}
  */
-export function academicList(page) {
+export function academicList(page = 1) {
   const result = post('Home/Academic/lists', {
+    page: page
+  })
+  return result
+}
+
+/**
+ * 获取在线阅读列表
+ * @param page
+ * @returns {*}
+ */
+export function onlineList(page = 1) {
+  const result = post('Home/Online/lists', {
+    page: page
+  })
+  return result
+}
+
+/**
+ * 他山之石列表
+ * @param page
+ * @returns {*}
+ */
+export function taShanList(page = 1) {
+  const result = post('Home/Ta/lists', {
+    page: page
+  })
+  return result
+}
+
+/**
+ * 下载专区列表
+ * @param page
+ * @returns {*}
+ */
+export function downloadList(page = 1) {
+  const result = post('Home/Download/lists', {
     page: page
   })
   return result

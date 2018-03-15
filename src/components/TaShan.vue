@@ -1,12 +1,12 @@
 <template>
   <slot-con>
-    <div class="academic">
-      <div class="academic-box clearfix">
-        <div class="academic-list">
-          <titles title="学术交流"></titles>
-          <group-item :data="academic"></group-item>
+    <div class="tashan">
+      <div class="tashan-box clearfix">
+        <div class="tashan-list">
+          <titles title="他山之石"></titles>
+          <group-item :data="taShan"></group-item>
           <Pagination
-            :total="academic[0].page*10"
+            :total="taShan[0].page*10"
             :page="page"
             @handleChange="handlePage">
           </Pagination>
@@ -24,7 +24,7 @@
   import groupItem from '@/base/group_item'
   import sideItem from '@/base/side_item'
   import Pagination from '@/base/pagination'
-  import {academicList, noticeIndexList} from '@/public/js/fetch'
+  import {taShanList, noticeIndexList} from '@/public/js/fetch'
 
   export default {
     components: {
@@ -36,24 +36,25 @@
     },
     data() {
       return {
-        academic: [],
+        taShan: [],
         notices: [],
         page: 1
       }
     },
     created() {
-      this._academicList()
+      this._taShanList()
       this._noticeIndexList()
     },
     methods: {
       /**
-       * 学术交流
+       * 他山之石列表
        * @private
        */
-      _academicList() {
-        const result = academicList(this.page)
+      _taShanList() {
+        const result = taShanList(this.page)
         result.then(res => {
-          this.academic = res.msg
+          console.log(res)
+          this.taShan = res.msg
         }).catch(err => {
           console.log(err.response)
         })
@@ -72,17 +73,17 @@
       },
       handlePage(page) {
         this.page = page
-        this._academicList()
+        this._taShanList()
       }
     }
   }
 </script>
 <style lang="less">
-  .academic {
+  .tashan {
     width: 100%;
-    .academic-box {
+    .tashan-box {
       width: 100%;
-      .academic-list {
+      .tashan-list {
         float: left;
         width: 730px;
       }

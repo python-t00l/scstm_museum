@@ -7,6 +7,9 @@ const Notices = () => import('@/components/Notices')
 const Vip = () => import('@/components/Vip')
 const Dynamic = () => import('@/components/Dynamic')
 const Academic = () => import('@/components/Academic')
+const Reading = () => import('@/components/Reading')
+const TaShan = () => import('@/components/TaShan')
+const Download = () => import('@/components/DownLoad')
 
 Vue.use(Router)
 
@@ -47,6 +50,24 @@ export default new Router({
       name: '学术交流',
       component: Academic,
       meta: ['学术交流']
+    },
+    {
+      path: '/reading',
+      name: '在线阅读',
+      component: Reading,
+      meta: ['在线阅读']
+    },
+    {
+      path: '/tashan',
+      name: '他山之石',
+      component: TaShan,
+      meta: ['他山之石']
+    },
+    {
+      path:'/download',
+      name:'下载专区',
+      component:Download,
+      meta:['下载专区']
     }
   ]
 })
