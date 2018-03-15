@@ -6,6 +6,7 @@
           <titles title="学术交流"></titles>
           <group-item :data="academic"></group-item>
           <Pagination
+            v-if="academic[0]"
             :total="academic[0].page*10"
             :page="page"
             @handleChange="handlePage">

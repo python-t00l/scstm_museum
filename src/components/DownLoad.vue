@@ -25,6 +25,7 @@
             </li>
           </ul>
           <Pagination
+            v-if="downloads[0]"
             :total="downloads[0].page*10"
             :page="page"
             @handleChange="handlePage">

@@ -13,8 +13,8 @@ import 'iview/dist/styles/iview.css';
 Vue.config.productionTip = false
 Vue.config.devtool = true
 //屏蔽所有控制台错误
-Vue.config.errorHandler = (err, vm, info) => {
-}
+/*Vue.config.errorHandler = (err, vm, info) => {
+}*/
 
 Vue.prototype.$http = axios
 

@@ -8,7 +8,7 @@
     <ul class="list clearfix">
       <li v-for="(item,index) in data" :key="index">
         <span class="splt"></span>
-        <router-link to="/">
+        <router-link target="_blank" :to="url+'/'+item.id">
           {{item.title}}
         </router-link>
       </li>

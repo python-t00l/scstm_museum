@@ -2,7 +2,7 @@
   <ul class="dyn clearfix">
     <li class="clearfix" v-for="(item,index) in data" :key="index">
       <h2>
-        <router-link to="/">
+        <router-link target="_blank" :to="url+'/'+item.id">
           {{item.title}}
         </router-link>
       </h2>
@@ -23,7 +23,7 @@
       <p class="txt">
         {{item.content}}
       </p>
-      <router-link to="/" class="details">
+      <router-link target="_blank" :to="url+'/'+item.id" class="details">
         查看详情
       </router-link>
     </li>
@@ -36,6 +36,10 @@
     props: {
       data: {
         type: Array,
+        default: ''
+      },
+      url: {
+        type: String,
         default: ''
       }
     },

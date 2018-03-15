@@ -11,10 +11,10 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      /*'/Home': {
+      '/Home': {
         target: 'http://www.bwg.com:8080',
         changeOrigin: true
-      }*/
+      }
     },
 
     // Various Dev Server settings

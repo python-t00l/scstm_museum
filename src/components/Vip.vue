@@ -6,6 +6,7 @@
           <titles title="会员天地"></titles>
           <group-item :data="vipList"></group-item>
           <Pagination
+            v-if="vipList[0]"
             :total="vipList[0].page * 10"
             :page="page"
             @handleChange="handlePage">

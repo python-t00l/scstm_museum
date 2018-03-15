@@ -6,6 +6,7 @@
           <titles title="协会动态"></titles>
           <group-item :data="dynamicList"></group-item>
           <Pagination
+            v-if="dynamicList[0]"
             :total="dynamicList[0].page * 10"
             :page="page"
             @handleChange="handlePage">

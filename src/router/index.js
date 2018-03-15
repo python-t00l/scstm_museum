@@ -3,8 +3,12 @@ import Router from 'vue-router'
 
 const Home = () => import('@/components/Home')
 const Introduce = () => import('@/components/Introduce')
-const Notices = () => import('@/components/Notices')
+
+const Notices = () => import('@/components/notice/Notices')
+const noticeDetail = () => import('@/components/notice/Detail')
+
 const Vip = () => import('@/components/Vip')
+
 const Dynamic = () => import('@/components/Dynamic')
 const Academic = () => import('@/components/Academic')
 const Reading = () => import('@/components/Reading')
@@ -14,7 +18,6 @@ const Download = () => import('@/components/DownLoad')
 Vue.use(Router)
 
 export default new Router({
-  mode: "history",
   routes: [
     {
       path: '/',
@@ -32,7 +35,13 @@ export default new Router({
       path: '/notice',
       name: '通知公告',
       component: Notices,
-      meta: ['通知公告']
+      meta: ['通知公告'],
+    },
+    {
+      path: '/notice/:id',
+      name: '通知公告详情',
+      component: noticeDetail,
+      meta: ['通知公告', '通知公告详情']
     },
     {
       path: '/vip',
@@ -65,10 +74,10 @@ export default new Router({
       meta: ['他山之石']
     },
     {
-      path:'/download',
-      name:'下载专区',
-      component:Download,
-      meta:['下载专区']
+      path: '/download',
+      name: '下载专区',
+      component: Download,
+      meta: ['下载专区']
     }
   ]
 })

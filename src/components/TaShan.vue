@@ -6,6 +6,7 @@
           <titles title="他山之石"></titles>
           <group-item :data="taShan"></group-item>
           <Pagination
+            v-if="taShan[0]"
             :total="taShan[0].page*10"
             :page="page"
             @handleChange="handlePage">

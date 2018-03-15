@@ -11,7 +11,7 @@
 <script>
   import indNav from '@/base/Head/ind_nav'
   import indFooter from '@/base/Head/footer'
-  import {getLogo, getFootInfo} from '@/public/js/fetch'
+  import {getLogo, getFootInfo, test} from '@/public/js/fetch'
 
   export default {
     name: 'App',
@@ -64,18 +64,22 @@
 
 <style>
   @import "./public/css/base.css";
-  #app{
+
+  #app {
     display: flex;
     flex-direction: column;
     height: 100%;
   }
-  .header{
+
+  .header {
     flex: 0 0 auto;
   }
-  .container{
+
+  .container {
     flex: 1 0 auto;
   }
-  .footer{
+
+  .footer {
     flex: 0 0 auto;
   }
 </style>

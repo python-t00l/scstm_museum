@@ -4,8 +4,9 @@
       <div class="notice-box clearfix">
         <div class="notice-list">
           <titles title="通知公告"></titles>
-          <group-item :data="notices"></group-item>
+          <group-item :data="notices" url="notice"></group-item>
           <Pagination
+            v-if="notices[0]"
             :total="notices[0].page*10"
             :page="page"
             @handleChange="handlePage">

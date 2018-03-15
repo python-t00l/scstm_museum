@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer" v-if="data">
     <div class="friend-link">
       <div class="link-con">
         <p class="title">友情链接</p>
