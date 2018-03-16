@@ -208,7 +208,6 @@
       _introduceDetail() {
         const result = introduceDetail(this.sideNav.current)
         result.then(res => {
-          console.log(res)
           this.text = res.msg
         }).catch(err => {
           console.log(err.response)
