@@ -10,7 +10,7 @@
                 :key="index">
               <div class="txt-item">
                 <span class="time">{{item.addtime | dateFrm}}</span>
-                <span class="splt"></span>
+                <!--<span class="splt"></span>-->
                 <span class="txt">
                   <a :href="filename+ '/' + 'Home/Download/download?filename='+item.filename">{{item.title}}</a>
                 </span>
@@ -114,11 +114,12 @@
         ul.online {
           width: 100%;
           position: relative;
-          background: url("../assets/line.jpg") repeat-y;
-          background-position: -68px 0;
-          margin-top: 30px;
+          /*background: url("../../assets/line.jpg") repeat-y;
+          background-position: -68px 0;*/
+          margin-top: 20px;
           li {
-            margin-bottom: 60px;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 20px 10px 20px 10px;
             &:last-child {
               margin-bottom: 0;
             }
