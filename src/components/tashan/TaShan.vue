@@ -54,7 +54,6 @@
       _taShanList() {
         const result = taShanList(this.page)
         result.then(res => {
-          console.log(res)
           this.taShan = res.msg
         }).catch(err => {
           console.log(err.response)

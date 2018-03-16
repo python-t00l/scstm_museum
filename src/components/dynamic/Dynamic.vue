@@ -71,7 +71,6 @@
       _homeSwiper() {
         const result = homeSwiper()
         result.then(res => {
-          console.log(res)
           this.banners = res.msg
         }).catch(err => {
           console.log(err.response)

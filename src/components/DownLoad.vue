@@ -74,7 +74,6 @@
       _downloadList() {
         const result = downloadList(this.page)
         result.then(res => {
-          console.log(res)
           this.downloads = res.msg
         }).catch(err => {
           console.log(err.response)

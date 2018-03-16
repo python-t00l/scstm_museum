@@ -253,9 +253,18 @@
           this.vertify.value
         )
         result.then(res => {
-          console.log(res)
-          this.load = false
-          if (res.status !== 0) {
+          if (res.status === 0) {
+            this.load = false
+            this.name.value = ''
+            this.name.isVerify = false
+            this.phone.value = ''
+            this.phone.isVerify = false
+            this.content.value = ''
+            this.content.isVerify = false
+            this.vertify.value = ''
+            this.vertify.isVerify = false
+            this._getImgCode()
+          } else {
             this._getImgCode()
             const obj = res.data
             this[Object.keys(obj)[0]].error = res.data[Object.keys(obj)[0]]
