@@ -10,14 +10,14 @@
             v-for="(item,index) in notices.on"
             :key="index">
           <h2>
-            <router-link to="/">
+            <router-link target="_blank" :to="'/notice/'+item.id">
               {{item.title}}
             </router-link>
           </h2>
           <p class="txt">
             {{item.content}}
           </p>
-          <a target="_blank" href="/" class="details">查看详情</a>
+          <router-link target="_blank" :to="'/notice/'+item.id" class="details">查看详情</router-link>
         </li>
       </ul>
     </div>
@@ -29,7 +29,7 @@
           <div class="title">
             <p>协会动态</p>
           </div>
-          <ass-item :data="assList"></ass-item>
+          <ass-item :data="assList" url="dynamic"></ass-item>
           <router-link to="/dynamic" class="more">
             <span>点击查看更多</span>
             <i class="icon">
@@ -40,7 +40,7 @@
         <div class="vip">
           <div class="title clearfix">
             <p class="txt">会员天地</p>
-            <router-link to="/" class="more">
+            <router-link to="/vip" class="more">
               更多
             </router-link>
           </div>

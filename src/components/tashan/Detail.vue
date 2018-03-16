@@ -9,7 +9,7 @@
 </template>
 <script type="text/ecmascript-6">
   import Detail from '@/base/detail'
-  import {noticeDetail, associatList} from '@/public/js/fetch'
+  import {taShanDetail, associatList} from '@/public/js/fetch'
 
   export default {
     components: {
@@ -20,13 +20,13 @@
         detail: {},
         dynamics: [],
         crumbs: {
-          url: '/notice',
-          title: '通知公告'
+          url: '/tashan',
+          title: '他山之石'
         }
       }
     },
     created() {
-      this._noticeDetail()
+      this._taShanDetail()
       this._associatList()
     },
     methods: {
@@ -34,8 +34,8 @@
        * 获取公告详情
        * @private
        */
-      _noticeDetail() {
-        const result = noticeDetail(this.$route.params.id)
+      _taShanDetail() {
+        const result = taShanDetail(this.$route.params.id)
         result.then(res => {
           this.detail = res.msg
         }).catch(err => {

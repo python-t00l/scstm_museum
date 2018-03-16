@@ -12,7 +12,7 @@
                 <span class="time">{{item.addtime | dateFrm}}</span>
                 <span class="splt"></span>
                 <span class="txt">
-                  <router-link to="/">{{item.title}}</router-link>
+                  <a :href="filename+ '/' + 'Home/Download/download?filename='+item.filename">{{item.title}}</a>
                 </span>
               </div>
               <p>

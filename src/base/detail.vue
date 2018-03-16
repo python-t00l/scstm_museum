@@ -22,7 +22,7 @@
         </side-item>
       </div>
     </div>
-    <div class="guide clearfix">
+    <div class="guide clearfix" v-if="data.shang || data.xia">
       <p class="prev">
         上一篇文章：
         <router-link :to="crumbs.url+'/'+data.shang.id">{{data.shang.title}}</router-link>
@@ -60,10 +60,7 @@
       },
       crumbs: {
         type: Object,
-        default: {
-          url: '/notice',
-          title: '通知公告'
-        }
+        default: {}
       }
     },
     components: {
@@ -113,6 +110,7 @@
         text-indent: 2rem;
         color: #252525;
         margin-top: 40px;
+        text-align: justify;
       }
     }
     .content-right {

@@ -70,7 +70,7 @@
         }
         .seamless-warp2{
           width: 1150px;
-          height: 47px;
+          height: 40px;
           overflow: hidden;
           margin-left: 10px;
           display: inline-block;
@@ -79,9 +79,9 @@
         .rolls-box {
           width: 100%;
           overflow: hidden;
-          height: 47px;
+          height: 40px;
           li {
-            width: 163px;
+            width: 139px;
             height: 100%;
             overflow: hidden;
             float: left;

@@ -12,12 +12,12 @@
                 <span class="time">{{item.addtime | dateFrm}}</span>
                 <span class="splt"></span>
                 <span class="txt">
-                  <router-link to="/">{{item.title}}</router-link>
+                  <router-link :to="'/reading/'+item.id">{{item.title}}</router-link>
                 </span>
               </div>
               <p>
                 <i class="icon">
-                  <img src="../assets/look.png"/>
+                  <img src="../../assets/look.png"/>
                 </i>
                 <span>{{item.number}}</span>
               </p>
@@ -111,7 +111,7 @@
         ul.online {
           width: 100%;
           position: relative;
-          background: url("../assets/line.jpg") repeat-y;
+          background: url("../../assets/line.jpg") repeat-y;
           background-position: -68px 0;
           margin-top: 30px;
           li {

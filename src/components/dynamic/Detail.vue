@@ -1,15 +1,15 @@
 <template>
   <detail
     :data="detail"
-    :sideData="dynamics"
-    title="协会动态"
+    :sideData="notice"
+    title="通知公告"
     :crumbs="crumbs"
-    url="/dynamic">
+    url="/notice">
   </detail>
 </template>
 <script type="text/ecmascript-6">
   import Detail from '@/base/detail'
-  import {noticeDetail, associatList} from '@/public/js/fetch'
+  import {dynamicDetail, noticeIndexList} from '@/public/js/fetch'
 
   export default {
     components: {
@@ -18,15 +18,15 @@
     data() {
       return {
         detail: {},
-        dynamics: [],
+        notice: [],
         crumbs: {
-          url: '/notice',
-          title: '通知公告'
+          url: '/dynamic',
+          title: '协会动态'
         }
       }
     },
     created() {
-      this._noticeDetail()
+      this._dynamicDetail()
       this._associatList()
     },
     methods: {
@@ -34,8 +34,8 @@
        * 获取公告详情
        * @private
        */
-      _noticeDetail() {
-        const result = noticeDetail(this.$route.params.id)
+      _dynamicDetail() {
+        const result = dynamicDetail(this.$route.params.id)
         result.then(res => {
           this.detail = res.msg
         }).catch(err => {
@@ -43,9 +43,9 @@
         })
       },
       _associatList() {
-        const result = associatList()
+        const result = noticeIndexList()
         result.then(res => {
-          this.dynamics = res.msg
+          this.notice = res.msg.under
         }).catch(err => {
           console.log(err.response)
         })

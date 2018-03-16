@@ -7,12 +7,21 @@ const Introduce = () => import('@/components/Introduce')
 const Notices = () => import('@/components/notice/Notices')
 const noticeDetail = () => import('@/components/notice/Detail')
 
-const Vip = () => import('@/components/Vip')
+const Vip = () => import('@/components/vip/Vip')
+const vipDetail = () => import('@/components/vip/Detail')
 
-const Dynamic = () => import('@/components/Dynamic')
-const Academic = () => import('@/components/Academic')
-const Reading = () => import('@/components/Reading')
-const TaShan = () => import('@/components/TaShan')
+const Dynamic = () => import('@/components/dynamic/Dynamic')
+const dynamicDetail = () => import('@/components/dynamic/Detail')
+
+const Academic = () => import('@/components/academic/Academic')
+const academicDetail = () => import('@/components/academic/Detail')
+
+const Reading = () => import('@/components/reading/Reading')
+const readDetail = () => import('@/components/reading/Detail')
+
+const TaShan = () => import('@/components/tashan/TaShan')
+const taShanDetail = () => import('@/components/tashan/Detail')
+
 const Download = () => import('@/components/DownLoad')
 
 Vue.use(Router)
@@ -50,10 +59,22 @@ export default new Router({
       meta: ['会员天地']
     },
     {
+      path: '/vip/:id',
+      name: '会员天地详情',
+      component: vipDetail,
+      meta: ['会员天地', '会员天地详情']
+    },
+    {
       path: '/dynamic',
       name: '协会动态',
       component: Dynamic,
       meta: ['协会动态']
+    },
+    {
+      path: '/dynamic/:id',
+      name: '协会动态详情',
+      component: dynamicDetail,
+      meta: ['协会动态', '会员天地详情']
     },
     {
       path: '/academic',
@@ -62,16 +83,34 @@ export default new Router({
       meta: ['学术交流']
     },
     {
+      path: '/academic/:id',
+      name: '学术交流详情',
+      component: academicDetail,
+      meta: ['学术交流', '学术交流详情']
+    },
+    {
       path: '/reading',
       name: '在线阅读',
       component: Reading,
       meta: ['在线阅读']
     },
     {
+      path: '/reading/:id',
+      name: '在线阅读详情',
+      component: readDetail,
+      meta: ['在线阅读', '在线阅读详情']
+    },
+    {
       path: '/tashan',
       name: '他山之石',
       component: TaShan,
       meta: ['他山之石']
+    },
+    {
+      path: '/tashan/:id',
+      name: '他山之石详情',
+      component: taShanDetail,
+      meta: ['他山之石', '他山之石详情']
     },
     {
       path: '/download',

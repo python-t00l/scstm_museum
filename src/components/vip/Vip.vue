@@ -1,13 +1,13 @@
 <template>
   <slot-con>
-    <div class="dynamic">
-      <div class="dynamic-box clearfix">
-        <div class="dynamic-list">
-          <titles title="协会动态"></titles>
-          <group-item :data="dynamicList"></group-item>
+    <div class="vip">
+      <div class="vip-box clearfix">
+        <div class="vip-list">
+          <titles title="会员天地"></titles>
+          <group-item :data="vipList" url="vip"></group-item>
           <Pagination
-            v-if="dynamicList[0]"
-            :total="dynamicList[0].page * 10"
+            v-if="vipList[0]"
+            :total="vipList[0].page * 10"
             :page="page"
             @handleChange="handlePage">
           </Pagination>
@@ -17,7 +17,7 @@
             图片新闻
           </div>
           <div class="swiper-box">
-            <swiper :banners="banners"></swiper>
+            <swiper :banners="imgs"></swiper>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
   import groupItem from '@/base/group_item'
   import Pagination from '@/base/pagination'
   import Swiper from '@/base/swiper'
-  import {dynamicList, homeSwiper} from '@/public/js/fetch'
+  import {vipList, vipIndexList} from '@/public/js/fetch'
 
   export default {
     components: {
@@ -42,54 +42,53 @@
     },
     data() {
       return {
-        dynamicList: [],
-        banners: [],
-        page: 1
+        vipList: [],
+        page: 1,
+        imgs: []
       }
     },
     created() {
-      this._dynamicList()
-      this._homeSwiper()
+      this._vipList()
+      this._vipIndexList()
     },
     methods: {
       /**
-       * 获取协会动态列表
+       * 获取会员天地列表
        * @private
        */
-      _dynamicList() {
-        const result = dynamicList(this.page)
+      _vipList() {
+        const result = vipList(this.page)
         result.then(res => {
-          this.dynamicList = res.msg
+          this.vipList = res.msg
         }).catch(err => {
-          console.log(err.response)
+          console.log(err)
         })
       },
       /**
-       * 获取图片新闻
+       * 图片新闻
        * @private
        */
-      _homeSwiper() {
-        const result = homeSwiper()
+      _vipIndexList() {
+        const result = vipIndexList()
         result.then(res => {
-          console.log(res)
-          this.banners = res.msg
+          this.imgs = res.msg
         }).catch(err => {
           console.log(err.response)
         })
       },
       handlePage(page) {
         this.page = page
-        this._dynamicList()
+        this._vipList()
       }
     }
   }
 </script>
 <style lang="less">
-  .dynamic {
+  .vip {
     width: 100%;
-    .dynamic-box {
+    .vip-box {
       width: 100%;
-      .dynamic-list {
+      .vip-list {
         float: left;
         width: 730px;
       }
@@ -102,7 +101,7 @@
             color: #004179;
           }
         }
-        .swiper-box {
+        .swiper-box{
           height: 310px;
           margin-top: 30px;
         }

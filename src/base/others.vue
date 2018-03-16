@@ -17,7 +17,7 @@
     <ul v-if="type===1" class="list clearfix">
       <li v-for="(item,index) in data.ta" :key="index">
         <span class="splt"></span>
-        <router-link to="/">
+        <router-link :to="'tashan/'+item.id">
           {{item.title}}
         </router-link>
       </li>
@@ -26,7 +26,7 @@
     <ul v-if="type===2" class="list clearfix">
       <li v-for="(item,index) in data.xie" :key="index">
         <span class="splt"></span>
-        <router-link to="/">
+        <router-link :to="'reading/'+item.id">
           {{item.title}}
         </router-link>
       </li>

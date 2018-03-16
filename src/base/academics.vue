@@ -9,7 +9,7 @@
       <li v-for="(item,index) in data"
           :key="index">
         <span class="splt"></span>
-        <router-link to="/">
+        <router-link :to="url+'/'+item.id">
           {{item.title}}
         </router-link>
       </li>

@@ -163,6 +163,18 @@ export function vipList(page = 1) {
 }
 
 /**
+ * 获取会员天地详情
+ * @param id
+ * @returns {*}
+ */
+export function vipDetail(id) {
+  const result = post('Home/Members/data', {
+    id: id
+  })
+  return result
+}
+
+/**
  * 获取协会动态
  * @param page
  * @returns {*}
@@ -170,6 +182,18 @@ export function vipList(page = 1) {
 export function dynamicList(page = 1) {
   const result = post('Home/Dynamic/lists', {
     page: page
+  })
+  return result
+}
+
+/**
+ * 协会动态详情
+ * @param id
+ * @returns {*}
+ */
+export function dynamicDetail(id) {
+  const result = post('Home/Dynamic/data', {
+    id: id
   })
   return result
 }
@@ -187,6 +211,18 @@ export function academicList(page = 1) {
 }
 
 /**
+ * 学术交流详情
+ * @param id
+ * @returns {*}
+ */
+export function academicDetail(id) {
+  const result = post('Home/Academic/data', {
+    id: id
+  })
+  return result
+}
+
+/**
  * 获取在线阅读列表
  * @param page
  * @returns {*}
@@ -199,6 +235,18 @@ export function onlineList(page = 1) {
 }
 
 /**
+ * 在线阅读详情
+ * @param id
+ * @returns {*}
+ */
+export function onlineDetail(id) {
+  const result = post('Home/Online/data', {
+    id: id
+  })
+  return result
+}
+
+/**
  * 他山之石列表
  * @param page
  * @returns {*}
@@ -206,6 +254,18 @@ export function onlineList(page = 1) {
 export function taShanList(page = 1) {
   const result = post('Home/Ta/lists', {
     page: page
+  })
+  return result
+}
+
+/**
+ * 他山之石详情
+ * @param id
+ * @returns {*}
+ */
+export function taShanDetail(id) {
+  const result = post('Home/Ta/data', {
+    id: id
   })
   return result
 }
