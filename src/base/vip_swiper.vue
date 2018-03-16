@@ -29,7 +29,7 @@
     data() {
       return {
         swiperOptions: {
-          slidesPerView: 3,
+          slidesPerView: 4,
           centeredSlides: false,
           spaceBetween: 16,
           navigation: {
