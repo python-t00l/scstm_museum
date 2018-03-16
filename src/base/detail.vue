@@ -25,11 +25,11 @@
     <div class="guide clearfix" v-if="data.shang || data.xia">
       <p class="prev">
         上一篇文章：
-        <router-link :to="crumbs.url+'/'+data.shang.id">{{data.shang.title}}</router-link>
+        <router-link target="_blank" :to="crumbs.url+'/'+data.shang.id">{{data.shang.title}}</router-link>
       </p>
       <p class="next">
         下一篇文章：
-        <router-link :to="crumbs.url+'/'+data.xia.id">{{data.xia.title}}</router-link>
+        <router-link target="_blank" :to="crumbs.url+'/'+data.xia.id">{{data.xia.title}}</router-link>
       </p>
     </div>
   </slot-con>
