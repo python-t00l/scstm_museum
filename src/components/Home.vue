@@ -51,6 +51,16 @@
       <div class="r-con">
         <!--通知公告-->
         <side-item :data="notices.under" title="通知公告" url="/notice"></side-item>
+
+        <div class="guide clearfix">
+          <router-link class="prev" to="/introduce">
+            协会介绍
+          </router-link>
+          <router-link class="next" to="/download">
+            下载专区
+          </router-link>
+        </div>
+
         <!--学术交流-->
         <academics :data="academics" title="学术交流" url="/academic"></academics>
         <!--他山之石&在线阅读-->
@@ -189,6 +199,7 @@
   .i-top {
     width: 100%;
     height: 380px;
+    overflow: hidden;
     .swiper {
       width: 730px;
       height: 100%;
@@ -295,6 +306,25 @@
       float: right;
       width: 470px;
       padding-left: 30px;
+      .guide{
+        width: 100%;
+        margin-top: 40px;
+        a{
+          width: 202px;
+          height: 70px;
+          background: #004178;
+          text-align: center;
+          line-height: 70px;
+          font-size: 22px;
+          color: #fff;
+          &.prev{
+            float: left;
+          }
+          &.next{
+            float: right;
+          }
+        }
+      }
     }
   }
 </style>

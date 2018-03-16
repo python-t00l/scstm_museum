@@ -2,7 +2,7 @@
   <ul class="dyn clearfix">
     <li class="clearfix" v-for="(item,index) in data" :key="index">
       <h2>
-        <router-link :to="url+'/'+item.id">
+        <router-link target="_blank" :to="url+'/'+item.id">
           {{item.title}}
         </router-link>
       </h2>

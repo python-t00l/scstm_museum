@@ -14,7 +14,7 @@ export function post(url, params) {
 
   return _this.$http({
     method: 'post',
-    url:  url,
+    url: url,
     data: qs.stringify(params)
   }).then((res) => {
     return Promise.resolve(res.data)

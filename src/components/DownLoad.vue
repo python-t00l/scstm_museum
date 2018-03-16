@@ -143,7 +143,12 @@
                   border-radius: 50%;
                 }
                 &.txt {
-
+                  a {
+                    color: #666;
+                    &:hover{
+                      color: #004178;
+                    }
+                  }
                 }
               }
             }

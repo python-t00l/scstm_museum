@@ -21,7 +21,7 @@
       &nbsp;&nbsp;&nbsp;&nbsp;
       传真：{{data.end[2].valus}}
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="/" target="_blank">管理员登录</a>
+      <a href="http://218.6.173.219:8084/museum/Admin/Index/index.html" target="_blank">管理员登录</a>
     </div>
   </div>
 </template>
