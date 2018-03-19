@@ -20,9 +20,7 @@
           <span>{{item.number}}</span>
         </p>
       </div>
-      <p class="txt">
-        {{item.content}}
-      </p>
+      <p class="txt" v-html="item.content"></p>
       <router-link target="_blank" :to="url+'/'+item.id" class="details">
         查看详情
       </router-link>
